@@ -1,5 +1,8 @@
 #include <iostream>
 #include "sales_Item.h"
+#include "Ch1_Homework.h"
+#include <climits>
+
 int sum(int x, int y)
 {
     return x + y;
@@ -57,36 +60,9 @@ void TryIf()
         std::cout << "Your number is odd" << std::endl; //if else statements very similar to python
 }
 
-void HWTwoNum()
-{
-    int m;
-    int n;
-    int c = 0; //set up a variable that counts
-    std::cout << "Input a number";
-    std::cin >> m;
-    std::cout << "Input another number";
-    std::cin >> n;
-
-    if (m > n) //swaps the numbers no matter what order
-    {
-        int tmp = m;
-        m = n;
-        n = tmp;
-    }
-
-    while (m <= n)
-    {
-        c++; //every loop count once
-        std::cout << m << " ";
-        m++;
-        if (c % 10 == 0) //every 10 outputs make a new line
-            std::cout << std::endl;
-    }
-}
-
 void TrySalesItem()
 {
-    std::cout << "Input book1, bookno, sold, price";
+    std::cout << "Input book1, bookno, sold, price"; 
     Sales_item book1;
     std::cin >> book1;
     
@@ -126,8 +102,50 @@ void TryCountBooks()
     }
 }
 
+unsigned long long get_max_value(int nbytes, bool is_signed)
+{
+    unsigned long long n = 1;
+    
+    if (nbytes == 8 and !is_signed)
+        return ULLONG_MAX;
 
+    if (is_signed)
+        n <<= nbytes * 8 - 1;
+    else
+        n <<= nbytes * 8;
 
+    return n - 1;
+}
+
+void TryTestIntegers()
+{
+    char n1 = 1; //1 byte
+    short n2 = 123; // 2 byte
+    int n3 = 123231; // 4 byte
+    long long n4 = 342344342; // 8 byte
+
+    std::cout << "char has " << sizeof(char) << " bytes" << std::endl;
+    std::cout << "short has " << sizeof(short) << " bytes" << std::endl;
+    std::cout << "int has " << sizeof(int) << " bytes" << std::endl;
+    std::cout << "long long has " << sizeof(long long) << " bytes" << std::endl;
+
+    unsigned char un1 = 1; //unsigned = no negatives only pos values
+    unsigned short un2 = 123;
+    unsigned int un3 = 123231;
+    unsigned long long un4 = 342344342;
+
+    std::cout << "Maximum value of char is " << get_max_value(sizeof(char), 1) << std::endl;
+    std::cout << " Max value of unsigned char is " << get_max_value(sizeof(char), 0) << std::endl;
+
+    std::cout << "Maximum value of short is " << get_max_value(sizeof(short), 1) << std::endl;
+    std::cout << " Max value of unsigned short is " << get_max_value(sizeof(short), 0) << std::endl;
+
+    std::cout << "Maximum value of int is " << get_max_value(sizeof(int), 1) << std::endl;
+    std::cout << " Max value of unsigned int is " << get_max_value(sizeof(int), 0) << std::endl;
+
+    std::cout << "Maximum value of long long is " << get_max_value(sizeof(long long), 1) << std::endl;
+    std::cout << " Max value of unsigned long long is " << get_max_value(sizeof(long long), 0) << std::endl;
+}
 
 int main()
 {
@@ -135,9 +153,14 @@ int main()
     //TryWhileLoop();
     //TryForLoop();
     //TryIf();
-    //HWTwoNum();
     //TrySalesItem();
-    TryCountBooks();
+    //TryCountBooks();
+    //HWTwoNum();
+    //Ex1_5();
+    //Ex1_9();
+    //Ex1_11();
+    //Ex1_17();
+    TryTestIntegers();
 }
 
     

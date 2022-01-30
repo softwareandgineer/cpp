@@ -142,6 +142,7 @@
     <ClCompile Include="AndyConsole.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ch1_Homework.h" />
     <ClInclude Include="sales_item.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
