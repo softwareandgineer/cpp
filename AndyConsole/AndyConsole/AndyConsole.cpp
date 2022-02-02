@@ -123,11 +123,17 @@ void TryTestIntegers()
     short n2 = 123; // 2 byte
     int n3 = 123231; // 4 byte
     long long n4 = 342344342; // 8 byte
+    long n5 = 1234; // 32 bit machine it has 4 bytes, if it is 64 bit machine, on Windows it has 4 bytes, on other platform(Linux) it has 8 bytes
+    float f = 0.1f; // the f behind the decimal represent float, single precision, has 4 bytes
+    double ff = 0.1; // no f behind decimal = double precision,has 8 bytes 
 
     std::cout << "char has " << sizeof(char) << " bytes" << std::endl;
     std::cout << "short has " << sizeof(short) << " bytes" << std::endl;
     std::cout << "int has " << sizeof(int) << " bytes" << std::endl;
     std::cout << "long long has " << sizeof(long long) << " bytes" << std::endl;
+    std::cout << "long has " << sizeof(long) << " bytes" << std::endl;
+    std::cout << "float has " << sizeof(float) << " bytes" << std::endl;
+    std::cout << "double has " << sizeof(double) << " bytes" << std::endl;
 
     unsigned char un1 = 1; //unsigned = no negatives only pos values
     unsigned short un2 = 123;
@@ -145,6 +151,33 @@ void TryTestIntegers()
 
     std::cout << "Maximum value of long long is " << get_max_value(sizeof(long long), 1) << std::endl;
     std::cout << " Max value of unsigned long long is " << get_max_value(sizeof(long long), 0) << std::endl;
+
+    //integer literals
+    int c1 = 20; //decimal literals in terms of 10
+    int c2 = 024; //leading 0, means that it is in octal literals
+    int c3 = 0x14; // hexadecimal (0-9, a=10, b=11, c=12, d=13, e=14, f=15
+
+    unsigned int c5 = 128u; //u = unsigned
+    long c6 = 10L; //L = long
+    long long c7 = 123456LL; //LL = long long
+
+    float f1 = 3.1415f; //single precisoin
+    float f2 = 1.0e-3; //scientific notation
+    float f3 = 5.0e10; //scientific notation
+
+    bool test = false; // or true
+
+    char c = 'a'; //single quote = char
+    char c2 = '\n'; // new line
+                    // /t: tab \b: backspace \r: carriage return \\: backslash \": double quote \': single quote
+    wchar_t wc = L'a'; // wide char(2 bytes), L: wide char
+
+    std::cout << "011 represents: " << 011 << std::endl;
+    std::cout << "0111 represents: " << 0111 << std::endl;
+    std::cout << "0403 represents: " << 0403 << std::endl;
+    
+    std::cout << "0x14 represents: " << 0x14 << std::endl;
+    std::cout << "0x2f represents: " << 0x2f << std::endl;
 }
 
 int main()
